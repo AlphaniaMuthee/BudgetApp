@@ -1,6 +1,7 @@
 package com.alphania.budgetjet;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
 public class ItemsViewActivity extends AppCompatActivity {
