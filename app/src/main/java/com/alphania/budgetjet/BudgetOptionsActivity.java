@@ -12,7 +12,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class BudgetOptionsActivity extends AppCompatActivity {
-    @BindView(R.id.optionsTextView) TextView mOptionTextView;
     @BindView(R.id.optionsListView) ListView mOptionsListView;
 
     private String[] options = new String[] {"View Budgets", "Create Budget", "Shopping Details", "Items"};
@@ -27,7 +26,7 @@ public class BudgetOptionsActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, options);
         mOptionsListView.setAdapter(adapter);
 
-        Intent intent = getIntent();
+        Intent intent= getIntent();
 
     }
 }
