@@ -36,6 +36,9 @@ public class BudgetOptionsActivity extends AppCompatActivity {
                 if (position == 0) {
                     Intent intent = new Intent(BudgetOptionsActivity.this, ViewBudgetAction.class);
                     startActivity(intent);
+                } else if (position == 1) {
+                    Intent intent = new Intent(BudgetOptionsActivity.this, CreateBudgetActivity.class);
+                    startActivity(intent);
                 }
             }
         });
