@@ -2,6 +2,7 @@ package com.alphania.budgetjet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -24,6 +25,9 @@ public class BudgetOptionsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, options);
+        mOptionsListView.setAdapter(adapter);
+
+        Intent intent = getIntent();
 
     }
 }
