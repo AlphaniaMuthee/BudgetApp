@@ -9,11 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewBudgetAction"></activity>
+        <activity android:name=".CreateBudgetActivity"></activity>
+        <activity android:name=".ViewBudgetAction">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BudgetOptionsActivity" />
+        </activity>
         <activity android:name=".BudgetOptionsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"></meta-data>
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"
