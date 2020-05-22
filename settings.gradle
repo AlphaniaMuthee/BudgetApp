@@ -1,0 +1,2 @@
+rootProject.name='BudgetJet'
+include ':app'

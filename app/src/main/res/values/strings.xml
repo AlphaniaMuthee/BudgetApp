@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BudgetJet</string>
+    <string name="TextView">BudgetJet</string>
+    <string name="Button">Get Budgeting</string>
+</resources>
