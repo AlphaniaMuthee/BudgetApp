@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,10 +26,21 @@ public class BudgetOptionsActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, options);
+        OptionsArrayAdapter adapter = new OptionsArrayAdapter(this, android.R.layout.simple_list_item_1, options);
         mOptionsListView.setAdapter(adapter);
 
-        Intent intent= getIntent();
+        mOptionsListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String option = ((TextView)view).getText().toString();
+                if (position == 0) {
+                    Intent intent = new Intent(BudgetOptionsActivity.this, ViewBudgetAction.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        //Intent intent= getIntent();
 
     }
 }
