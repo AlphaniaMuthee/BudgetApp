@@ -34,7 +34,7 @@
 
 
     <Button
-        android:id="@+id/GetBudgetingButton"
+        android:id="@+id/startBudgetingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
