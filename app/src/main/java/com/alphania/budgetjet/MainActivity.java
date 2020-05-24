@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == mStartBudgetingButton) {
             Intent intent = new Intent(MainActivity.this, BudgetOptionsActivity.class);
             startActivity(intent);
-            //Toast.makeText(MainActivity.this,"Hello!", Toast.LENGTH_SHORT).show();
         }
     }
 }

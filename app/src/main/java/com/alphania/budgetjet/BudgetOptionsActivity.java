@@ -42,6 +42,9 @@ public class BudgetOptionsActivity extends AppCompatActivity {
                 } else if (position == 2) {
                     Intent intent = new Intent(BudgetOptionsActivity.this, ShoppingActivity.class);
                     startActivity(intent);
+                } else if (position == 3) {
+                    Intent intent = new Intent(BudgetOptionsActivity.this, ItemsViewActivity.class);
+                    startActivity(intent);
                 }
             }
         });

@@ -12,7 +12,7 @@
         android:layout_width="413dp"
         android:layout_height="735dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/write"
+        android:src="@drawable/music"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
