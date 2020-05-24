@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 public class BudgetOptionsActivity extends AppCompatActivity {
     @BindView(R.id.optionsListView) ListView mOptionsListView;
 
-    private String[] options = new String[] {"View Budgets", "Create Budget", "Shopping Details", "Items"};
+    private String[] options = new String[] {"View Budgets", "Create Budget", "Shopping Details", "Items", "Profile"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class BudgetOptionsActivity extends AppCompatActivity {
                 } else if (position == 3) {
                     Intent intent = new Intent(BudgetOptionsActivity.this, ItemsViewActivity.class);
                     startActivity(intent);
+                } else {
                 }
             }
         });
