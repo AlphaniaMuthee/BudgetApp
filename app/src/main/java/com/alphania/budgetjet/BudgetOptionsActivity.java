@@ -46,6 +46,8 @@ public class BudgetOptionsActivity extends AppCompatActivity {
                     Intent intent = new Intent(BudgetOptionsActivity.this, ItemsViewActivity.class);
                     startActivity(intent);
                 } else {
+                    Intent intent = new Intent(BudgetOptionsActivity.this, ProfileActivity.class);
+                    startActivity(intent);
                 }
             }
         });
