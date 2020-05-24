@@ -16,6 +16,7 @@ import butterknife.ButterKnife;
 
 public class BudgetOptionsActivity extends AppCompatActivity {
     @BindView(R.id.optionsListView) ListView mOptionsListView;
+    @BindView(R.id.profileTextView) TextView mProfileTextView;
 
     private String[] options = new String[] {"View Budgets", "Create Budget", "Shopping Details", "Items", "Profile"};
 
@@ -52,7 +53,9 @@ public class BudgetOptionsActivity extends AppCompatActivity {
             }
         });
 
-        //Intent intent= getIntent();
+        Intent intent= getIntent();
+        String name = intent.getStringExtra("name");
+        mProfileTextView.setText("Hello "+name+", welcome to BudgetJet");
 
     }
 }
