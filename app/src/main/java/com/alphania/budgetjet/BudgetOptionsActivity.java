@@ -16,8 +16,9 @@ import butterknife.ButterKnife;
 
 public class BudgetOptionsActivity extends AppCompatActivity {
     @BindView(R.id.optionsListView) ListView mOptionsListView;
+    @BindView(R.id.profileTextView) TextView mProfileTextView;
 
-    private String[] options = new String[] {"View Budgets", "Create Budget", "Shopping Details", "Items"};
+    private String[] options = new String[] {"View Budgets", "Create Budget", "Shopping Details", "Items", "Profile"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +43,19 @@ public class BudgetOptionsActivity extends AppCompatActivity {
                 } else if (position == 2) {
                     Intent intent = new Intent(BudgetOptionsActivity.this, ShoppingActivity.class);
                     startActivity(intent);
+                } else if (position == 3) {
+                    Intent intent = new Intent(BudgetOptionsActivity.this, ItemsViewActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(BudgetOptionsActivity.this, ProfileActivity.class);
+                    startActivity(intent);
                 }
             }
         });
 
-        //Intent intent= getIntent();
+        Intent intent= getIntent();
+        String name = intent.getStringExtra("name");
+        mProfileTextView.setText("Hello "+name+", welcome to BudgetJet");
 
     }
 }
