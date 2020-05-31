@@ -8,13 +8,13 @@ public class Item {
     private String mSellers;
     private String mImageCaption;
 
-    public Item(String mBrand, String mCategory, String mPriceRanges, String mImageUrl, String mSellers, String mImageCaption) {
+    public Item(String mBrand, String mCategory, String mPriceRanges, String mImageUrl , String mImageCaption, String mSellers) {
         this.mBrand = mBrand;
         this.mCategory = mCategory;
         this.mPriceRanges = mPriceRanges;
         this.mImageUrl = mImageUrl;
-        this.mSellers = mSellers;
         this.mImageCaption = mImageCaption;
+        this.mSellers = mSellers;
     }
 
     public String getmBrand() {

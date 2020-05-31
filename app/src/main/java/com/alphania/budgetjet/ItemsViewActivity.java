@@ -10,6 +10,7 @@ import java.io.IOException;
 import okhttp3.*;
 
 public class ItemsViewActivity extends AppCompatActivity {
+    public static final String TAG = ItemsViewActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class ItemsViewActivity extends AppCompatActivity {
                     public void onResponse(Call call, Response response) throws IOException {
                 try {
                     String jsonData = response.body().string();
-                    Log.v(jsonData);
+                    Log.v(TAG, jsonData);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
