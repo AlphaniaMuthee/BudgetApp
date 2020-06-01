@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,12 +33,16 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
     }
     @Override
     public void onClick(View v) {
+        String name = mNameEditText.getText().toString();
+        String email = mEmailEditText.getText().toString();
         if (v == mSetUpButton) {
-            String name = mNameEditText.getText().toString();
-            String email = mEmailEditText.getText().toString();
+            if ( ( ( mNameEditText.getText().toString().trim().equals("")))|| ( ( mEmailEditText.getText().toString().trim().equals("")))){
+                Toast.makeText(SetupActivity.this, "Input your name and email to proceed", Toast.LENGTH_LONG).show();
+            } else {
                 Intent intent = new Intent(SetupActivity.this, BudgetOptionsActivity.class);
                 intent.putExtra("name", name);
                 startActivity(intent);
+            }
         }
     }
 }
