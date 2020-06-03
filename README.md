@@ -1,5 +1,5 @@
 # BudgetJet
-An app that helps users create budgets, make lists of shopping and keep track of whether their shopping habits are higher or within their budget range. THe project allows the user to check for item prices from a variety of stalls as they set their budget.
+An app that helps users create budgets, make lists of shopping and keep track of whether their shopping habits are higher or within their budget range. The app allows the user to check for item prices from a variety of stalls and sellers as they set their budget.
 ## Getting Started
 * Fork the project to your github repo
 * Clone the project to your computer
