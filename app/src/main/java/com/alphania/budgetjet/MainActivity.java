@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mStartBudgetingButton) {
-            Toast.makeText(MainActivity.this, "Let's get budgeting", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(MainActivity.this, SetupActivity.class);
             startActivity(intent);
         }

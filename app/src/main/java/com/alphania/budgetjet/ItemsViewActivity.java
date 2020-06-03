@@ -30,12 +30,13 @@ public class ItemsViewActivity extends AppCompatActivity {
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
 
     private ItemsListAdapter mAdapter;
-    private List<Product> items = new ArrayList<>();
+    public List<Product> items = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.Items);
         setContentView(R.layout.activity_items_view);
         ButterKnife.bind(this);
 
@@ -50,16 +51,16 @@ public class ItemsViewActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    items = response.body().getProducts();
-                    mAdapter = new ItemsListAdapter(items, ItemsViewActivity.this);
-                    mRecyclerView.setAdapter(mAdapter);
-                    RecyclerView.LayoutManager layoutManager =
-                            new LinearLayoutManager(ItemsViewActivity.this);
-                    mRecyclerView.setLayoutManager(layoutManager);
-                    mRecyclerView.setHasFixedSize(true);
+                    List<Product> itemsList = response.body().getProducts();
+                    String [] items = new String[itemsList.size()];
+                    for (int i = 0; i < items.length; i++){
+                        items[i] = itemsList.get(i).getBrand();
+                    }
+                    ArrayAdapter adapter = new ArrayAdapter(ItemsViewActivity.this, android.R.layout.simple_list_item_1, items);
+                    mItemListView.setAdapter(adapter);
 
                     showItems();
-                } else {
+             } else {
                     showUnsuccessfulMessage();
                 }
             }
@@ -77,7 +78,7 @@ public class ItemsViewActivity extends AppCompatActivity {
     }
 
     private void showFailureMessage() {
-        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setText("Check your internet connection!");
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
@@ -86,7 +87,7 @@ public class ItemsViewActivity extends AppCompatActivity {
     }
 
     private void showUnsuccessfulMessage() {
-        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setText("Couldn't fetch results. Please try again later");
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 }

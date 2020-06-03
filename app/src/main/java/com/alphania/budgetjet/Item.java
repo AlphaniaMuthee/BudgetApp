@@ -6,38 +6,43 @@ public class Item {
     private String mPriceRanges;
     private String mImageUrl;
     private String mSellers;
-    private String mImageCaption;
+    private String mCaption;
 
-    public Item(String mBrand, String mCategory, String mPriceRanges, String mImageUrl , String mImageCaption, String mSellers) {
-        this.mBrand = mBrand;
-        this.mCategory = mCategory;
-        this.mPriceRanges = mPriceRanges;
-        this.mImageUrl = mImageUrl;
-        this.mImageCaption = mImageCaption;
-        this.mSellers = mSellers;
+    public Item(String Brand, String Category, String PriceRange, String ImageUrl , String Caption, String Sellers) {
+        this.mBrand = Brand;
+        this.mCategory = Category;
+        this.mPriceRanges = PriceRange;
+        this.mImageUrl = ImageUrl;
+        this.mCaption = Caption;
+        this.mSellers = Sellers;
+        mImageUrl = getLargeImageUrl(ImageUrl);
+    }
+    private String getLargeImageUrl(String imageUrl) {
+        String largeImageUrl = imageUrl.substring(0, imageUrl.length() - 6).concat("o.jpg");
+        return largeImageUrl;
     }
 
-    public String getmBrand() {
+    public String getBrand() {
         return mBrand;
     }
 
-    public String getmCategory() {
+    public String getCategory() {
         return mCategory;
     }
 
-    public String getmPriceRanges() {
+    public String getPriceRanges() {
         return mPriceRanges;
     }
 
-    public String getmImageUrl() {
+    public String getImageUrl() {
         return mImageUrl;
     }
 
-    public String getmSellers() {
+    public String getSellers() {
         return mSellers;
     }
 
-    public String getmImageCaption() {
-        return mImageCaption;
+    public String getCaption() {
+        return mCaption;
     }
 }
