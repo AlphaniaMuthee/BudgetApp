@@ -2,4 +2,9 @@
     <string name="app_name">BudgetJet</string>
     <string name="TextView">BudgetJet</string>
     <string name="Button">Get Budgeting</string>
+    <string name="Shopping_Details">Shopping Details</string>
+    <string name="Create_Budget">Create Budget</string>
+    <string name="View_Budgets">Your Budgets</string>
+    <string name="profile">User Details</string>
+    <string name="Items">Items</string>
 </resources>

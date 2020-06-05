@@ -13,19 +13,17 @@ import butterknife.ButterKnife;
 
 public class ProfileActivity extends AppCompatActivity {
     @BindView(R.id.profileTextView) TextView mProfileTextView;
-    //@BindView(R.id.profileListView) ListView mProfileListView;
-    //@BindView(R.id.nameListView) ListView mNameListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.profile);
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String email = intent.getStringExtra("email");
-        //mProfileTextView.setText("Profile");
         mProfileTextView.setText(name);
         mProfileTextView.setText(email);
     }
