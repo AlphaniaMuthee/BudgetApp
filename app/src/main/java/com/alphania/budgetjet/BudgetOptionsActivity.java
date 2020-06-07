@@ -52,9 +52,5 @@ public class BudgetOptionsActivity extends AppCompatActivity {
                 }
             }
         });
-
-        Intent intent= getIntent();
-        String name = intent.getStringExtra("name");
-        mProfileTextView.setText("Hello "+name+", welcome to BudgetJet");
     }
 }

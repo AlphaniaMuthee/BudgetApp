@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mStartBudgetingButton) {
-            Intent intent = new Intent(MainActivity.this, SetupActivity.class);
+            Intent intent = new Intent(MainActivity.this, BudgetOptionsActivity.class);
             startActivity(intent);
         }
     }

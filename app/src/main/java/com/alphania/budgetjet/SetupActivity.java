@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +26,7 @@ import butterknife.ButterKnife;
 public class SetupActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = SetupActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
+    private String mName;
     private FirebaseAuth.AuthStateListener mAuthListener;
     protected ProgressDialog mAunthProgressDialog;
 
@@ -35,7 +37,6 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
     @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
-    private ProgressDialog mAuthProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,7 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void createAuthProgressDialog() {
-        mAuthProgressDialog = new ProgressDialog(this);
+        ProgressDialog mAuthProgressDialog = new ProgressDialog(this);
         mAuthProgressDialog.setTitle("Loading...");
         mAuthProgressDialog.setMessage("Authenticating with Firebase...");
         mAuthProgressDialog.setCancelable(false);
@@ -79,13 +80,15 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void createNewUser() {
+        mName = mNameEditText.getText().toString().trim();
         final String name = mNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
+        boolean validName = isValidName(mName);
         boolean validEmail = isValidEmail(email);
-        boolean validName = isValidName(name);
+        //boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
         mAunthProgressDialog.show();
@@ -97,6 +100,7 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
                         mAunthProgressDialog.dismiss();
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Authentication successful");
+                            createFirebaseUserProfile(task.getResult().getUser());
                         } else {
                             Toast.makeText(SetupActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
@@ -159,5 +163,23 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
             return false;
         }
         return true;
+    }
+    private void createFirebaseUserProfile(final FirebaseUser user) {
+
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mName)
+                .build();
+
+        user.updateProfile(addProfileName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, user.getDisplayName());
+                        }
+                    }
+
+                });
     }
 }
