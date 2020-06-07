@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "542864193472",
+    "firebase_url": "https://budgetjet.firebaseio.com",
+    "project_id": "budgetjet",
+    "storage_bucket": "budgetjet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542864193472:android:98443ee8882eaa9e257a25",
+        "android_client_info": {
+          "package_name": "com.alphania.budgetjet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542864193472-77jkgquf74e0s6jdrk9j88mkvrtbik7d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alphania.budgetjet",
+            "certificate_hash": "e465ddbf0a535e3ad95bef936e3fc952a32d9d9f"
+          }
+        },
+        {
+          "client_id": "542864193472-nn3r96k0a6a47emc14v9hlgnjrh85dho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAR2NtkoDM0OKnCMI4Wko3Ta1lZqpbEQhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542864193472-nn3r96k0a6a47emc14v9hlgnjrh85dho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
