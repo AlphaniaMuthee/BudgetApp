@@ -3,6 +3,7 @@ package com.alphania.budgetjet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,7 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
     public static final String TAG = SetupActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    protected ProgressDialog mAunthProgressDialog;
 
     @BindView(R.id.setUpButton) Button mSetUpButton;
     @BindView(R.id.setUpTextView) TextView mSetUpTextView;
@@ -33,6 +35,7 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
     @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
+    private ProgressDialog mAuthProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +45,20 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
 
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
+        createAuthProgressDialog();
 
         mSetUpButton.setOnClickListener(this);
         mLoginTextView.setOnClickListener(this);
 
     }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
+    }
+
     @Override
     public void onClick(View v) {
         String name = mNameEditText.getText().toString();
@@ -76,11 +88,13 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
+        mAunthProgressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        mAunthProgressDialog.dismiss();
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Authentication successful");
                         } else {
