@@ -17,8 +17,9 @@ import butterknife.ButterKnife;
 public class SetupActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.setUpButton) Button mSetUpButton;
     @BindView(R.id.setUpTextView) TextView mSetUpTextView;
-    @BindView(R.id.nameTextView) TextView mNameTextView;
-    @BindView(R.id.emailTextView) TextView mEmailTextView;
+    @BindView(R.id.loginTextView) TextView mLoginTextView;
+    @BindView(R.id.passwordEditText) EditText mPasswordEditText;
+    @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
     @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
 
