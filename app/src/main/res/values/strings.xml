@@ -7,4 +7,7 @@
     <string name="View_Budgets">Your Budgets</string>
     <string name="profile">User Details</string>
     <string name="Items">Items</string>
+    <string name="finish">Finish</string>
+    <string name="already_have_an_account_log_in_here">Already have an account? Log in here!</string>
+    <string name="set_up">Set Up</string>
 </resources>

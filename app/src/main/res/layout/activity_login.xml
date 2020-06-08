@@ -4,21 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#050505"
+    android:background="@color/colorSecondaryText"
     android:backgroundTint="#050505"
-    tools:context=".SetupActivity">
+    tools:context=".LoginActivity">
 
     <TextView
-        android:id="@+id/setUpTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="7dp"
-        android:layout_marginBottom="23dp"
         android:fontFamily="@font/amita_bold"
-        android:text="@string/set_up"
+        android:text="Sign In"
         android:textColor="@color/colorTextIcons"
         android:textSize="50dp"
         android:textStyle="bold" />
@@ -27,25 +23,11 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp"
-        android:background="#14FFFFFF"
+        android:layout_centerInParent="true"
+        android:background="#A1757575"
+        android:backgroundTint="#7C757575"
         android:orientation="vertical"
         android:padding="30dp">
-
-        <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/white"
-            android:hint="Name"
-            android:nextFocusDown="@+id/passwordEditText"
-            android:padding="10dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/colorDivider"
-            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/emailEditText"
@@ -65,7 +47,6 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:background="@android:color/white"
             android:hint="Password"
             android:inputType="textPassword"
@@ -75,38 +56,25 @@
             android:textColorHint="@color/colorDivider"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/confirmPasswordEditText"
+        <Button
+            android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/white"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:nextFocusDown="@+id/passwordEditText"
-            android:padding="10dp"
-            android:textColor="@android:color/black"
-            android:textColorHint="@color/colorDivider"
-            android:textSize="20sp" />
-
-        <Button
-            android:id="@+id/setUpButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="15dp"
             android:background="@color/colorAccent"
-            android:padding="15dp"
-            android:text="@string/finish" />
+            android:padding="10dp"
+            android:text="Log in"
+            android:textColor="@color/colorTextIcons" />
 
         <TextView
-            android:id="@+id/loginTextView"
+            android:id="@+id/setupTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/amita_bold"
-            android:text="@string/already_have_an_account_log_in_here"
+            android:text="Don't have an account? Sign up here!"
             android:textColor="@color/colorTextIcons"
             android:textSize="17dp"
             android:textStyle="bold" />
