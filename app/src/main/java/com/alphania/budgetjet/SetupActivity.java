@@ -65,15 +65,11 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
         String name = mNameEditText.getText().toString();
         String email = mEmailEditText.getText().toString();
         if (v == mLoginTextView) {
-            if ( ( ( mNameEditText.getText().toString().trim().equals("")))|| ( ( mEmailEditText.getText().toString().trim().equals("")))){
-                Toast.makeText(SetupActivity.this, "Input your name and email to proceed", Toast.LENGTH_LONG).show();
-            } else {
                 Intent intent = new Intent(SetupActivity.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
             }
-        }
         if ( v == mSetUpButton) {
             createNewUser();
         }
@@ -86,9 +82,9 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
-        boolean validName = isValidName(mName);
+        //boolean validName = isValidName(mName);
         boolean validEmail = isValidEmail(email);
-        //boolean validName = isValidName(name);
+        boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
         mAunthProgressDialog.show();
