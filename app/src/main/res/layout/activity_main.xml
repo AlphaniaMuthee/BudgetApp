@@ -32,21 +32,4 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <Button
-        android:id="@+id/startBudgetingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="182dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="102dp"
-        android:fontFamily="@font/amaranth"
-        android:background="@color/colorAccent"
-        android:text="@string/Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appNameTextView" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

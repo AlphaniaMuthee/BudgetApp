@@ -83,7 +83,6 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
-        //boolean validName = isValidName(mName);
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);

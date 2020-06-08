@@ -4,75 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorSecondaryText"
+    android:backgroundTint="#050505"
     tools:context=".LoginActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="30dp"
-        android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/amita_bold"
+        android:text="Sign In"
+        android:textColor="@color/colorTextIcons"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#A1757575"
+        android:backgroundTint="#7C757575"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="30dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout">
+        android:padding="30dp">
 
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:nextFocusDown="@+id/passwordEditText"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@color/colorDivider"
-        android:textSize="20sp" />
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@android:color/white"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:nextFocusDown="@+id/passwordEditText"
+            android:padding="10dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorDivider"
+            android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:nextFocusDown="@+id/passwordEditText"
-        android:padding="10dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@color/colorDivider"
-        android:textSize="20sp" />
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:nextFocusDown="@+id/passwordEditText"
+            android:padding="10dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorDivider"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorAccent"
             android:padding="10dp"
             android:text="Log in"
-            android:background="@color/colorAccent"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/colorTextIcons"
-            android:layout_gravity="center_horizontal"/>
+            android:textColor="@color/colorTextIcons" />
 
         <TextView
+            android:id="@+id/setupTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:textColor="@color/colorPrimaryText"
-            android:textStyle="bold"
-            android:textSize="15sp"
+            android:fontFamily="@font/amita_bold"
             android:text="Don't have an account? Sign up here!"
-            android:id="@+id/setupTextView"
-            android:layout_gravity="center_horizontal" />
+            android:textColor="@color/colorTextIcons"
+            android:textSize="17dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
