@@ -3,6 +3,7 @@ package com.alphania.budgetjet;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,7 +29,7 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth mAuth;
     private String mName;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    protected ProgressDialog mAunthProgressDialog;
+    private ProgressDialog mAuthProgressDialog;
 
     @BindView(R.id.setUpButton) Button mSetUpButton;
     @BindView(R.id.setUpTextView) TextView mSetUpTextView;
@@ -54,7 +55,7 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void createAuthProgressDialog() {
-        ProgressDialog mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog = new ProgressDialog(this);
         mAuthProgressDialog.setTitle("Loading...");
         mAuthProgressDialog.setMessage("Authenticating with Firebase...");
         mAuthProgressDialog.setCancelable(false);
@@ -87,13 +88,13 @@ public class SetupActivity extends AppCompatActivity implements View.OnClickList
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
-        mAunthProgressDialog.show();
+        mAuthProgressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        mAunthProgressDialog.dismiss();
+                        mAuthProgressDialog.dismiss();
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Authentication successful");
                             createFirebaseUserProfile(task.getResult().getUser());
