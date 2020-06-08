@@ -12,4 +12,4 @@ An app that helps users create budgets, make lists of shopping and keep track of
 ## Authors
 **Alphania Muthee**
 ## License
-This project is licensed under the MIT License- see the License.md file for details.
+This project is licensed under the MIT License- see the <a href="https://github.com/AlphaniaMuthee/BudgetApp/blob/master/License.md">License.md</a> file for details.
