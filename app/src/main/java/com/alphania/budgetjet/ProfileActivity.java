@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -15,10 +17,11 @@ import com.google.firebase.auth.FirebaseUser;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity  implements View.OnClickListener{
     @BindView(R.id.nameTextView) TextView mNameTextView;
     @BindView(R.id.emailTextView) TextView mEmailTextView;
     @BindView(R.id.idTextView) TextView mIdTextView;
+    @BindView(R.id.deleteButton) Button mDeleteButton;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -29,6 +32,7 @@ public class ProfileActivity extends AppCompatActivity {
         setTitle(R.string.profile);
         setContentView(R.layout.activity_profile);
         ButterKnife.bind(this);
+        mDeleteButton.setOnClickListener(this);
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -58,6 +62,14 @@ public class ProfileActivity extends AppCompatActivity {
         super.onStop();
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mDeleteButton){
+            Intent intent = new Intent(ProfileActivity.this, DeletionActivity.class);
+            startActivity(intent);
         }
     }
 }
