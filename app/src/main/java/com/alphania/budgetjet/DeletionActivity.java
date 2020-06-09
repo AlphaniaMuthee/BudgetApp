@@ -51,21 +51,22 @@ public class DeletionActivity extends AppCompatActivity implements View.OnClickL
         };
     }
     private void deleteUser() {
-    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    final FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-    currentUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-        @Override
-        public void onComplete(@NonNull Task<Void> task) {
-            if (task.isSuccessful()) {
-                Log.d(TAG,"OK! Works fine!");
-                startActivity(new Intent(DeletionActivity.this, SetupActivity.class));
-                finish();
-            } else {
-                Log.w(TAG,"Something is wrong!");
+        Log.d(TAG, "ingreso a deleteAccount");
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        final FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        currentUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Log.d(TAG,"OK! Works fine!");
+                    startActivity(new Intent(DeletionActivity.this, SetupActivity.class));
+                    finish();
+                } else {
+                    Log.w(TAG,"Something is wrong!");
+                }
             }
-        }
-    });
-}
+        });
+    }
 
     @Override
     public void onClick(View v) {
